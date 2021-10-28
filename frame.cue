@@ -26,36 +26,6 @@ package frame
   values: [..._]
 }
 
-// badFramedMixedTypesInField: #Dataframe & {
-//     Name: "TestFrame2"
-//     Fields: [
-//         {
-//              Name: "MixedValueTypesShouldFail",
-//              Type: "string"
-//              values: [1, "a"]
-//         }
-//     ]
-// }
-
-
-
-// badFrameMissMatchedLen: #Dataframe & {
-//     Name: "TestFrame2"
-//     Fields: [
-//         {
-//             Name: "",
-//             Type: "int64"
-//             values: [1,2,3]
-//         },
-//         {
-//              Name: "",
-//              Type: "int64"
-//              values: [1, 2]
-//         }
-//     ]
-// }
-
-
 #AllFieldTypes: #FieldTypeInt8 | #FieldTypeNullableInt8 | #FieldTypeInt16 | #FieldTypeNullableInt16 | #FieldTypeInt32 | #FieldTypeNullableInt32 | #FieldTypeInt64 | #FieldTypeNullableInt64 | #FieldTypeUint8 | #FieldTypeNullableUint8 | #FieldTypeUint16 | #FieldTypeNullableUint16 | #FieldTypeUint32 | #FieldTypeNullableUint32 | #FieldTypeUint64 | #FieldTypeNullableUint64 | #FieldTypeFloat32 | #FieldTypeNullableFloat32 | #FieldTypeFloat64 | #FieldTypeNullableFloat64 | #FieldTypeString | #FieldTypeNullableString | #FieldTypeBool | #FieldTypeNullableBool | #FieldTypeTime | #FieldTypeNullableTime
 
 // FieldTypes

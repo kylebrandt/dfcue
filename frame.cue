@@ -11,6 +11,9 @@ package frame
 #DataResponse: {
         Frames: [...#Dataframe]
         Error?: string
+}
+
+#TypedDataResponse: #DataResponse & {
         DataType?: "" | "Table" | "TimeSeriesMany" | "TimeSeriesWide" | "TimeSeriesLong" | "NumberMany" | "NumberWide"
 }
 

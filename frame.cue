@@ -1,5 +1,21 @@
 package frame
 
+
+// DataQueryResponse is named QueryDataResponse in the go sdk backend package
+// In the Go SDK there is responses property but I have removed that for this model.
+#DataQueryResponse: {
+        [#refId]: #DataResponse
+}
+
+// DataResponse contains the results to an individual query
+#DataResponse: {
+        Frames: [...#Dataframe]
+        Error?: string
+        DataType?: "" | "Table" | "TimeSeriesMany" | "TimeSeriesWide" | "TimeSeriesLong" | "NumberMany" | "NumberWide"
+}
+
+#refId: string
+
 // Dataframe is a columnar table made up of fields
 #Dataframe: {
     Name: string,
@@ -26,7 +42,13 @@ package frame
   values: [..._]
 }
 
-#AllFieldTypes: #FieldTypeInt8 | #FieldTypeNullableInt8 | #FieldTypeInt16 | #FieldTypeNullableInt16 | #FieldTypeInt32 | #FieldTypeNullableInt32 | #FieldTypeInt64 | #FieldTypeNullableInt64 | #FieldTypeUint8 | #FieldTypeNullableUint8 | #FieldTypeUint16 | #FieldTypeNullableUint16 | #FieldTypeUint32 | #FieldTypeNullableUint32 | #FieldTypeUint64 | #FieldTypeNullableUint64 | #FieldTypeFloat32 | #FieldTypeNullableFloat32 | #FieldTypeFloat64 | #FieldTypeNullableFloat64 | #FieldTypeString | #FieldTypeNullableString | #FieldTypeBool | #FieldTypeNullableBool | #FieldTypeTime | #FieldTypeNullableTime
+#StringFieldTypes: #FieldTypeString | #FieldTypeNullableString
+
+#NumericFieldTypes: #FieldTypeInt8 | #FieldTypeNullableInt8 | #FieldTypeInt16 | #FieldTypeNullableInt16 | #FieldTypeInt32 | #FieldTypeNullableInt32 | #FieldTypeInt64 | #FieldTypeNullableInt64 | #FieldTypeUint8 | #FieldTypeNullableUint8 | #FieldTypeUint16 | #FieldTypeNullableUint16 | #FieldTypeUint32 | #FieldTypeNullableUint32 | #FieldTypeUint64 | #FieldTypeNullableUint64 | #FieldTypeFloat32 | #FieldTypeNullableFloat32 | #FieldTypeFloat64 | #FieldTypeNullableFloat64
+
+#TimeFieldTypes: #FieldTypeTime | #FieldTypeNullableTime
+
+#AllFieldTypes: #NumericFieldTypes | #StringFieldTypes | #TimeFieldTypes | #FieldTypeBool | #FieldTypeNullableBool 
 
 // FieldTypes
 #FieldTypeInt8: #FieldTypeRule & {
@@ -125,7 +147,7 @@ package frame
 }
 
 #FieldTypeNullableFloat64: #FieldTypeRule & {
-        Type: "nullablefloat64"
+        Type: "nullableFloat64"
         values: [...float64|null]
 }
 

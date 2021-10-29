@@ -15,6 +15,11 @@ myFrame: #Dataframe & {
             values: [1,2,null,4]
         },
         {
+            Name: "TestNullableFloat64"
+            Type: "nullableFloat64"
+            values: [1.1,null,3.2,4.2]
+        },
+        {
             Name: "TestSringField",
             Type: "string"
             values: ["a", "b", "c", "d"]
@@ -26,4 +31,10 @@ myFrame: #Dataframe & {
         },
 
     ]
+}
+
+myDataQueryResponse: #DataQueryResponse & {
+    "a": #DataResponse & {
+        Frames: [ myFrame ]
+    }
 }
